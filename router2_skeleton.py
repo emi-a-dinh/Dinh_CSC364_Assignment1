@@ -186,7 +186,7 @@ def start_server():
     #     print("Bind failed. Error : " + str(sys.exc_info()))
     #     sys.exit()
     # 3. Set the socket to listen.
-    soc.listen()
+    soc.listen(9)
     print("Socket now listening")
 
     # 4. Read in and store the forwarding table.
