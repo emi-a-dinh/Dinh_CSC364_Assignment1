@@ -222,4 +222,4 @@ for packet in packets_table:
         write_to_file("output/discarded_by_router_1.txt", str(new_packet))
 
     # Sleep for some time before sending the next packet (for debugging purposes)
-    time.sleep(1)
+    # time.sleep(1) 
