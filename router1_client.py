@@ -208,11 +208,11 @@ for packet in packets_table:
     # (c) append the new packet to discarded_by_router_1.txt and do not forward the new packet
     if sending_port == "8002":
         print("sending packet", new_packet, "to Router 2")
-        write_to_file("output/sent_by_router_1.txt", str(new_packet), router2)
+        write_to_file("output/sent_by_router_1.txt", str(new_packet), "2")
         router2.send(",".join(new_packet).encode('utf-8'))
     elif sending_port == "8004":
         print("sending packet", new_packet, "to Router 4")
-        write_to_file("output/sent_by_router_1.txt", str(new_packet), router2)
+        write_to_file("output/sent_by_router_1.txt", str(new_packet), "4")
         router4.send(",".join(new_packet).encode('utf-8'))
     elif sending_port == "127.0.0.1":
         print("OUT:", payload)
