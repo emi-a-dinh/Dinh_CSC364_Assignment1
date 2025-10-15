@@ -237,6 +237,7 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
         # 7. Convert the destination IP into an integer for comparison purposes.
         # destinationIP_bin = ip_to_bin(destinationIP)
         destinationIP_int = ip_to_bin(destinationIP)
+        print("Desintation: ", destinationIP_int)
 
         sending_port = None
         # 8. Find the appropriate sending port to forward this new packet to.
