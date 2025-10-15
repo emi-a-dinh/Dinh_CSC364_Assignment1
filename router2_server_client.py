@@ -199,9 +199,9 @@ for packet in packets_table:
     if not sending_port: 
         sending_port = default_gateway_port
 
+    if ttl == 0: 
+            sending_port = None
             
-            
-    
     # 11. Either
     # (a) send the new packet to the appropriate port (and append it to sent_by_router_1.txt),
     # (b) append the payload to out_router_1.txt without forwarding because this router is the last hop, or
