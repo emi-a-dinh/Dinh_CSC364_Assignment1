@@ -247,14 +247,14 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
             print("Payload: ", payload)
             print("MinIP: ", min_ip)
             print("MaxIP: ", max_ip)
-            if destinationIP_int in range(min_ip, max_ip):
+            if destinationIP_int in range(min_ip, max_ip+1): 
                 sending_port = row[3]
                 break
 
         # 9. If no port is found, then set the sending port to the default port.
         if not sending_port and new_ttl >= 0:
             sending_port = default_gateway_port
-        elif new_ttl <= 0: 
+        elif new_ttl < 0: 
             sending_port = None
 
         # 11. Either
