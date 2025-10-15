@@ -270,7 +270,7 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
             write_to_file("output/sent_by_router_4.txt", str(new_packet))
             router6.send(",".join(new_packet).encode('utf-8'))
         elif sending_port == "127.0.0.1":
-            print("OUT:", payload)˛
+            print("OUT:", payload)
             write_to_file("output/out_router_4.txt", str(new_packet))
         else:
             print("DISCARD:", new_packet)
