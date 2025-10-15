@@ -201,7 +201,7 @@ def start_server():
         # 8. Accept the connection.
         connection, address = soc.accept()
         ip, port = address
-        print("Connected with " + ip + ":" + port)
+        print("Connected with " + str(ip) + ":" + str(port))
         # 9. Start a new thread for receiving and processing the incoming packets.
         try:
             thread = Thread(target=processing_thread, args=(connection, ip, port, forwarding_table_with_range, default_gateway_port))
