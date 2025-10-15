@@ -100,7 +100,7 @@ def ip_to_bin(ip):
         # 7. while the sting representation of the binary is not 8 chars long,
         # then add 0s to the beginning of the string until it is 8 chars long
         # (needs to be an octet because we're working with IP addresses).
-        while len(bin_octet_string) != 8:
+        while len(bin_octet_string) < 8:
             bin_octet_string = "0" + bin_octet_string
         # 8. Finally, append the octet to ip_bin_string.
         ip_bin_string = ip_bin_string + bin_octet_string
@@ -120,10 +120,10 @@ def find_ip_range(network_dst, netmask):
     # Because the built-in bitwise NOT or compliment operator (~) works with signed ints,
     # we need to create our own bitwise NOT operator for our unsigned int (a netmask).
     compliment = bit_not(netmask)
-    min_ip = bitwise_and + 1
+    min_ip = bitwise_and
     # 3. Add the total number of IPs to the minimum IP
     # to get the maximum IP address in the range.
-    max_ip = (bitwise_and | compliment) - 1
+    max_ip = bitwise_and | compliment
     # 4. Return a list containing the minimum and maximum IP in the range.
     return [min_ip, max_ip]
 
