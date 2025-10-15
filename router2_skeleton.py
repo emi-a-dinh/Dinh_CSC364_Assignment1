@@ -108,7 +108,7 @@ def ip_to_bin(ip):
     # 9. Once the entire string version of the binary IP is created, convert it into an actual binary int.
     ip_int = int(ip_bin_string, 2)
     # 10. Return the binary representation of this int.
-    return bin(ip_int)
+    return ip_int
 
 
 # The purpose of this function is to find the range of IPs inside a given a destination IP address/subnet mask pair.
@@ -265,7 +265,7 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
         elif sending_port == 8003:
             print("sending packet", new_packet, "to Router 4")
             write_to_file("output/sent_by_router_2.txt", new_packet)
-            router3.send(",".join(new_packet).encode('utf-8'))
+            router4.send(",".join(new_packet).encode('utf-8'))
         elif sending_port == "127.0.0.1":
             print("OUT:", payload)
             write_to_file("output/out_router_2.txt", new_packet)

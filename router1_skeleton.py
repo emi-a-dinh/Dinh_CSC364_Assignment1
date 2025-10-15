@@ -107,7 +107,7 @@ def ip_to_bin(ip):
     # 9. Once the entire string version of the binary IP is created, convert it into an actual binary int.
     ip_int = int(ip_bin_string, 2)
     # 10. Return the binary representation of this int.
-    return bin(ip_int)
+    return ip_int
 
 
 # The purpose of this function is to find the range of IPs inside a given a destination IP address/subnet mask pair.
