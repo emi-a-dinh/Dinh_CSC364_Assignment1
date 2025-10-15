@@ -182,8 +182,9 @@ for packet in packets_table:
     new_packet = [sourceIP, destinationIP, payload, new_ttl]
 
     # 9. Convert the destination IP into an integer for comparison purposes.
-    destinationIP_bin = ip_to_bin(destinationIP)
-    destinationIP_int = int(destinationIP_bin, 2)
+    # destinationIP_bin = ip_to_bin(destinationIP)
+    # destinationIP_int = int(destinationIP_bin, 2)
+    destinationIP_int = ip_to_bin(destinationIP)
     
     sending_port = None
     # 9. Find the appropriate sending port to forward this new packet to.
