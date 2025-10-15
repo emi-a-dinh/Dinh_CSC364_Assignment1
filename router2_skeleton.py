@@ -179,12 +179,12 @@ def start_server():
     soc = create_socket(host, port)
     soc.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     print("Socket created")
-    # 2. Try binding the socket to the appropriate host and receiving port (based on the network topology diagram).
-    try:
-        soc.bind((host, port))
-    except:
-        print("Bind failed. Error : " + str(sys.exc_info()))
-        sys.exit()
+    # # 2. Try binding the socket to the appropriate host and receiving port (based on the network topology diagram).
+    # try:
+    #     soc.bind((host, port))
+    # except:
+    #     print("Bind failed. Error : " + str(sys.exc_info()))
+    #     sys.exit()
     # 3. Set the socket to listen.
     soc.listen()
     print("Socket now listening")
