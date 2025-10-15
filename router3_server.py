@@ -244,9 +244,6 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
         for row in forwarding_table_with_range:
             min_ip = row[4][0]
             max_ip = row[4][1]
-            print("Payload: ", payload)
-            print("MinIP: ", min_ip)
-            print("MaxIP: ", max_ip)
             if destinationIP_int in range(min_ip, max_ip+1): 
                 sending_port = row[3]
                 break
