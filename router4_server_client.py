@@ -223,7 +223,7 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
         packet = receive_packet(connection, max_buffer_size)
 
         # 4. If the packet is empty (Router 1 has finished sending all packets), break out of the processing loop
-        if not packet:
+        if not packet or len(packet) != 4: 
             break
 
         # 5. Store the source IP, destination IP, payload, and TTL.
@@ -253,7 +253,7 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
         if not sending_port:
             sending_port = default_gateway_port
             
-        if ttl == 0: 
+        if new_ttl == 0: 
             sending_port = None
 
         # 11. Either
@@ -270,7 +270,7 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
             router6.send(",".join(new_packet).encode('utf-8'))
         elif sending_port == "127.0.0.1":
             print("OUT:", payload)
-            write_to_file("output/out_router_4.txt", str(new_packet))
+            write_to_file("output/out_router_4.txt", payload)
         else:
             print("DISCARD:", new_packet)
             write_to_file("output/discarded_by_router_4.txt", str(new_packet))
