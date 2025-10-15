@@ -248,10 +248,8 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
                 break
 
         # 9. If no port is found, then set the sending port to the default port.
-        if not sending_port and ttl >= 0:
+        if not sending_port:
             sending_port = default_gateway_port
-        elif new_ttl < 0: 
-            sending_port = None
 
         # 11. Either
         # (a) send the new packet to the appropriate port (and append it to sent_by_router_2.txt),
