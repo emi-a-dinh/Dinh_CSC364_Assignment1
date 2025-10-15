@@ -13,8 +13,9 @@ def create_socket(host, port):
     # 2. Try connecting the socket to the host and port.
     try:
         soc.connect((host,port))
-    except:
+    except soc.error, msg:
         print("Connection Error to", port)
+        print "Couldnt connect with the socket-server: %s\n terminating program" % msg
         sys.exit()
     # 3. Return the connected socket.
     return soc
