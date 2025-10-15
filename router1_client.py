@@ -206,15 +206,15 @@ for packet in packets_table:
     # (a) send the new packet to the appropriate port (and append it to sent_by_router_1.txt),
     # (b) append the payload to out_router_1.txt without forwarding because this router is the last hop, or
     # (c) append the new packet to discarded_by_router_1.txt and do not forward the new packet
-    encoded_packet = ",".join(map(str, new_packet))
+    encoded_packet = ",".join(new_packet).encode('utf-8')
     if sending_port == "8002":
         print("sending packet", new_packet, "to Router 2")
         write_to_file("output/sent_by_router_1.txt", str(new_packet), "2")
-        router2.send(encoded_packet)
+        router2.sendall(encoded_packet)
     elif sending_port == "8004":
         print("sending packet", new_packet, "to Router 4")
         write_to_file("output/sent_by_router_1.txt", str(new_packet), "4")
-        router4.send(encoded_packet)
+        router4.sendall(encoded_packet)
     elif sending_port == "127.0.0.1":
         print("OUT:", payload)
         write_to_file("output/out_router_1.txt", str(new_packet))
