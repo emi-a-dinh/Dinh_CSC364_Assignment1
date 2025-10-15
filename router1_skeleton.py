@@ -12,7 +12,7 @@ def create_socket(host, port):
     soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # 2. Try connecting the socket to the host and port.
     try:
-        soc.connect_ex((host, port))
+        soc.connect((host, port))
     except:
         print("Connection Error to", port)
         sys.exit()

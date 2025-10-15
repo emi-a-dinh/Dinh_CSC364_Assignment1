@@ -12,7 +12,7 @@ def create_socket(host, port):
     soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # 2. Try connecting the socket to the host and port.
     try:
-        soc.bind((host,port))
+        soc.connect((host,port))
     except:
         print("Connection Error to", port)
         sys.exit()
@@ -137,7 +137,7 @@ def bit_not(n, numbits=32):
 # The purpose of this function is to receive and process an incoming packet.
 def receive_packet(connection, max_buffer_size):
     # 1. Receive the packet from the socket.
-    received_packet = connection.recv()
+    received_packet = connection.recv(max_buffer_size)
     # 2. If the packet size is larger than the max_buffer_size, print a debugging message
     packet_size = sys.getsizeof(received_packet)
     if packet_size > max_buffer_size:
@@ -179,12 +179,12 @@ def start_server():
     soc = create_socket(host, port)
     soc.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     print("Socket created")
-    # # 2. Try binding the socket to the appropriate host and receiving port (based on the network topology diagram).
-    # try:
-    #     soc.bind((host, port))
-    # except:
-    #     print("Bind failed. Error : " + str(sys.exc_info()))
-    #     sys.exit()
+    # 2. Try binding the socket to the appropriate host and receiving port (based on the network topology diagram).
+    try:
+        soc.bind((host, port))
+    except:
+        print("Bind failed. Error : " + str(sys.exc_info()))
+        sys.exit()
     # 3. Set the socket to listen.
     soc.listen(9)
     print("Socket now listening")
