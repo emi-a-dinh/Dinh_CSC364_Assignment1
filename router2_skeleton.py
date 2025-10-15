@@ -146,7 +146,7 @@ def receive_packet(connection, max_buffer_size):
     decoded_packet = received_packet.decode('utf-8').strip()
     # 3. Append the packet to received_by_router_2.txt.
     print("received packet", decoded_packet)
-    write_to_file("/output/recieved_by_router_2.txt", decoded_packet)
+    write_to_file("output/recieved_by_router_2.txt", decoded_packet)
     # 4. Split the packet by the delimiter.
     packet = decoded_packet.split(",")
     # 5. Return the list representation of the packet.
@@ -190,7 +190,7 @@ def start_server():
     print("Socket now listening")
 
     # 4. Read in and store the forwarding table.
-    forwarding_table = read_csv("/input/router_2_table.csv")
+    forwarding_table = read_csv("input/router_2_table.csv")
     # 5. Store the default gateway port.
     default_gateway_port = find_default_gateway(forwarding_table)
     # 6. Generate a new forwarding table that includes the IP ranges for matching against destination IPS.
@@ -260,18 +260,18 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
         # (c) append the new packet to discarded_by_router_2.txt and do not forward the new packet
         if sending_port == 8003: 
             print("sending packet", new_packet, "to Router 3")
-            write_to_file("/output/sent_by_router_2.txt", new_packet)
+            write_to_file("output/sent_by_router_2.txt", new_packet)
             router3.send(",".join(new_packet).encode('utf-8'))
         elif sending_port == 8003:
             print("sending packet", new_packet, "to Router 4")
-            write_to_file("/output/sent_by_router_2.txt", new_packet)
+            write_to_file("output/sent_by_router_2.txt", new_packet)
             router3.send(",".join(new_packet).encode('utf-8'))
         elif sending_port == "127.0.0.1":
             print("OUT:", payload)
-            write_to_file("/output/out_router_2.txt", new_packet)
+            write_to_file("output/out_router_2.txt", new_packet)
         else:
             print("DISCARD:", new_packet)
-            write_to_file("/output/discarded_by_router_2.txt", new_packet)
+            write_to_file("output/discarded_by_router_2.txt", new_packet)
 
 
 # Main Program
