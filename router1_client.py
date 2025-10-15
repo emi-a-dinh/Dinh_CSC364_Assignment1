@@ -210,11 +210,11 @@ for packet in packets_table:
     if sending_port == "8002":
         print("sending packet", new_packet, "to Router 2")
         write_to_file("output/sent_by_router_1.txt", str(new_packet), "2")
-        router2.sendall(encoded_packet)
+        router2.send(encoded_packet)
     elif sending_port == "8004":
         print("sending packet", new_packet, "to Router 4")
         write_to_file("output/sent_by_router_1.txt", str(new_packet), "4")
-        router4.sendall(encoded_packet)
+        router4.send(encoded_packet)
     elif sending_port == "127.0.0.1":
         print("OUT:", payload)
         write_to_file("output/out_router_1.txt", str(new_packet))
@@ -223,4 +223,4 @@ for packet in packets_table:
         write_to_file("output/discarded_by_router_1.txt", str(new_packet))
 
     # Sleep for some time before sending the next packet (for debugging purposes)
-    # time.sleep(1) 
+    time.sleep(1) 
