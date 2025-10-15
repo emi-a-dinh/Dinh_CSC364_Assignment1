@@ -190,6 +190,7 @@ for packet in packets_table:
     # 9. Find the appropriate sending port to forward this new packet to.
     for row in forwarding_table_with_range:
         min_ip = row[4][0]
+        print("type min: ", type(min_ip))
         max_ip = row[4][1]
         if destinationIP_int in range(min_ip, max_ip):
             sending_port = row[3]
