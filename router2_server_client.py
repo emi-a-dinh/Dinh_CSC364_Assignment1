@@ -269,7 +269,7 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
         elif int(new_ttl) <= 0:
             print("DISCARD:", new_packet)
             write_to_file("output/discarded_by_router_2.txt",  ",".join(new_packet))
-        if sending_port == "8003": 
+        elif sending_port == "8003": 
             print("sending packet", new_packet, "to Router 3")
             write_to_file("output/sent_by_router_2.txt",  ",".join(new_packet), "3")
             router3.send(",".join(new_packet).encode('utf-8'))
