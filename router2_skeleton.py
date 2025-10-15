@@ -12,7 +12,7 @@ def create_socket(host, port):
     soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     # 2. Try connecting the socket to the host and port.
     try:
-        soc.connect((host,port))
+        soc.connect((host, port))
     except:
         print("Connection Error to", port)
         sys.exit()
@@ -176,7 +176,7 @@ def start_server():
     # 1. Create a socket.
     host = "127.0.0.1"
     port = 8002
-    soc = create_socket(host, port)
+    soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     soc.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     print("Socket created")
     # 2. Try binding the socket to the appropriate host and receiving port (based on the network topology diagram).
