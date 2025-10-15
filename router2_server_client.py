@@ -252,7 +252,7 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
             print("Min: ", min_ip)
             print("Max: ", max_ip)
         
-            if destinationIP_int in range(min_ip, max_ip+1): 
+            if min_ip <= destinationIP <= max_ip: 
                 sending_port = row[3]
                 break
 
