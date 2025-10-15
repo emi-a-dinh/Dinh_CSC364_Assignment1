@@ -262,18 +262,18 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
             write_to_file("output/out_router_4.txt", payload)
         elif int(new_ttl) <= 0:
             print("DISCARD:", new_packet)
-            write_to_file("output/discarded_by_router_4.txt", str(new_packet))
+            write_to_file("output/discarded_by_router_4.txt",  ",".join(new_packet))
         elif sending_port == "8005": 
             print("sending packet", new_packet, "to Router 5")
-            write_to_file("output/sent_by_router_4.txt", str(new_packet), "5")
+            write_to_file("output/sent_by_router_4.txt",  ",".join(new_packet), "5")
             router5.send(",".join(new_packet).encode('utf-8'))
         elif sending_port == "8006":
             print("sending packet", new_packet, "to Router 6")
-            write_to_file("output/sent_by_router_4.txt", str(new_packet), "6")
+            write_to_file("output/sent_by_router_4.txt",  ",".join(new_packet), "6")
             router6.send(",".join(new_packet).encode('utf-8'))
         else:
             print("DISCARD:", new_packet)
-            write_to_file("output/discarded_by_router_4.txt", str(new_packet))
+            write_to_file("output/discarded_by_router_4.txt",  ",".join(new_packet))
         
 
 

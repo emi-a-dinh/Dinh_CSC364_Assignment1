@@ -260,7 +260,7 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
             write_to_file("output/out_router_6.txt", payload)
         else:
             print("DISCARD:", new_packet)
-            write_to_file("output/discarded_by_router_6.txt", str(new_packet))
+            write_to_file("output/discarded_by_router_6.txt",  ",".join(new_packet))
 
 
 # Main Program
