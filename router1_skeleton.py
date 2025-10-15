@@ -184,7 +184,7 @@ for packet in packets_table:
     # 9. Convert the destination IP into an integer for comparison purposes.
     # destinationIP_bin = ip_to_bin(destinationIP)
     # destinationIP_int = int(destinationIP_bin, 2)
-    destinationIP_int = ip_to_bin(destinationIP)
+    destinationIP_int = int(destinationIP_bin, 2)
     
     sending_port = None
     # 9. Find the appropriate sending port to forward this new packet to.
@@ -208,18 +208,18 @@ for packet in packets_table:
     # (c) append the new packet to discarded_by_router_1.txt and do not forward the new packet
     if sending_port == 8002:
         print("sending packet", new_packet, "to Router 2")
-        write_to_file("output/sent_by_router_1.txt", new_packet, router2)
+        write_to_file("output/sent_by_router_1.txt", str(new_packet), router2)
         router2.send(",".join(new_packet).encode('utf-8'))
     elif sending_port == 8004:
         print("sending packet", new_packet, "to Router 4")
-        write_to_file("output/sent_by_router_1.txt", new_packet, router2)
+        write_to_file("output/sent_by_router_1.txt", str(new_packet), router2)
         router4.send(",".join(new_packet).encode('utf-8'))
     elif sending_port == "127.0.0.1":
         print("OUT:", payload)
-        write_to_file("output/out_router_1.txt", new_packet)
+        write_to_file("output/out_router_1.txt", str(new_packet))
     else:
         print("DISCARD:", new_packet)
-        write_to_file("output/discarded_by_router_1.txt", new_packet)
+        write_to_file("output/discarded_by_router_1.txt", str(new_packet))
 
     # Sleep for some time before sending the next packet (for debugging purposes)
     time.sleep(1)
