@@ -181,7 +181,7 @@ def start_server():
     print("Socket created")
     # 2. Try binding the socket to the appropriate host and receiving port (based on the network topology diagram).
     try:
-        soc.bind(host, port)
+        soc.bind((host, port))
     except:
         print("Bind failed. Error : " + str(sys.exc_info()))
         sys.exit()
