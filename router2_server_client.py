@@ -240,12 +240,17 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
         # 7. Convert the destination IP into an integer for comparison purposes.
         # destinationIP_bin = ip_to_bin(destinationIP)
         destinationIP_int = ip_to_bin(destinationIP)
+        print("Destination: ", destinationIP_int)
 
         sending_port = None
         # 8. Find the appropriate sending port to forward this new packet to.
         for row in forwarding_table_with_range:
+            
             min_ip = row[4][0]
             max_ip = row[4][1]
+            
+            print("Min: ", min_ip)
+            print("Max: ", max_ip)
         
             if destinationIP_int in range(min_ip, max_ip+1): 
                 sending_port = row[3]
