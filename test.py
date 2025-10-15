@@ -40,3 +40,28 @@ def ip_to_bin(ip):
 
 client : 1, 2, 4
 server: 2, 3, 4, 5, 6
+
+
+diff discarded_by_router_1.txt ../../CSC364_Assignment_1/output/discarded_by_router_1.txt 
+diff discarded_by_router_2.txt ../../CSC364_Assignment_1/output/discarded_by_router_2.txt 
+diff discarded_by_router_4.txt ../../CSC364_Assignment_1/output/discarded_by_router_4.txt 
+
+diff out_router_1.txt ../../CSC364_Assignment_1/output/out_router_1.txt
+diff out_router_2.txt ../../CSC364_Assignment_1/output/out_router_2.txt
+diff out_router_3.txt ../../CSC364_Assignment_1/output/out_router_3.txt
+diff out_router_4.txt ../../CSC364_Assignment_1/output/out_router_4.txt
+diff out_router_5.txt ../../CSC364_Assignment_1/output/out_router_5.txt
+diff out_router_6.txt ../../CSC364_Assignment_1/output/out_router_6.txt
+
+diff recieved_by_router_2.txt ../../CSC364_Assignment_1/output/recieved_by_router_2.txt
+diff recieved_by_router_3.txt ../../CSC364_Assignment_1/output/recieved_by_router_3.txt
+diff recieved_by_router_4.txt ../../CSC364_Assignment_1/output/recieved_by_router_4.txt
+diff recieved_by_router_5.txt ../../CSC364_Assignment_1/output/recieved_by_router_5.txt
+diff recieved_by_router_6.txt ../../CSC364_Assignment_1/output/recieved_by_router_6.txt
+
+diff sent_by_router_1.txt ../../CSC364_Assignment_1/output/sent_by_router_1.txt
+diff sent_by_router_2.txt ../../CSC364_Assignment_1/output/sent_by_router_2.txt
+diff sent_by_router_4.txt ../../CSC364_Assignment_1/output/sent_by_router_4.txt
+
+
+

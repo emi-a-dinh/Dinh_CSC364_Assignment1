@@ -146,7 +146,7 @@ def receive_packet(connection, max_buffer_size):
     decoded_packet = received_packet.decode('utf-8').strip()
     # 3. Append the packet to received_by_router_2.txt.
     print("received packet", decoded_packet)
-    write_to_file("output/recieved_by_router_6.txt", decoded_packet)
+    write_to_file("output/received_by_router_6.txt", decoded_packet)
     # 4. Split the packet by the delimiter.
     packet = decoded_packet.split(",")
     # 5. Return the list representation of the packet.
