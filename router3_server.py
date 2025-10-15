@@ -175,7 +175,7 @@ def write_to_file(path, packet_to_write, send_to_router=None):
 def start_server():
     # 1. Create a socket.
     host = "127.0.0.1"
-    port = 8002
+    port = 8003
     soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     soc.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     print("Socket created")
