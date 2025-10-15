@@ -245,7 +245,7 @@ def processing_thread(connection, ip, port, forwarding_table_with_range, default
         # 8. Find the appropriate sending port to forward this new packet to.
         for row in forwarding_table_with_range:
             min_ip = row[4][0]
-            max_ip = row[4][0]
+            max_ip = row[4][1]
             if destinationIP_int in range(min_ip, max_ip):
                 sending_port = row[3]
                 break
