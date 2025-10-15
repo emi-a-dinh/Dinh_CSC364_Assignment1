@@ -179,7 +179,7 @@ for packet in packets_table:
 
     # 8. Decrement the TTL by 1 and construct a new packet with the new TTL.
     new_ttl = ttl - 1 
-    new_packet = [sourceIP, destinationIP, payload, new_ttl]
+    new_packet = [sourceIP, destinationIP, payload, str(new_ttl)]
 
     # 9. Convert the destination IP into an integer for comparison purposes.
     # destinationIP_bin = ip_to_bin(destinationIP)
